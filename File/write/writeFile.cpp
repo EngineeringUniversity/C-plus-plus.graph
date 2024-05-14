@@ -1,8 +1,8 @@
+//writeFile
 #include <iostream>
-#include <string>
 #include <fstream>
-
-#include <sstream>
+#include <cstdlib>
+// getHome
 #include <unistd.h>
 #include <sys/types.h>
 #include <pwd.h>
@@ -13,23 +13,29 @@ string getHome(){
     struct passwd *pw = getpwuid(getuid());
 
     const char *homedir = pw->pw_dir;
-
-    ostringstream oss;
-    oss << homedir;
-    return oss.str();
+    return homedir;
 }
 
 void writeFile(){
     string file = getHome() + "/Desktop/my.txt";
 
-    ofstream file_out;
-    file_out.open(file);
+    ofstream fout;
+    fout.open(file);
+    if (fout.fail()){
+        cout << "Error opening file";
+        exit(1);
+    }
 
-    file_out.close();
+    fout << "Hello World!" << endl;
+    fout << "second line" << endl;
+
+    fout.close();
 }
 
 
 int main(){
+
+    writeFile();
 
     return 0;
 }

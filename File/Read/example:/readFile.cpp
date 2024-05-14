@@ -30,7 +30,7 @@ void readFile(){
     while (!fin.eof())
     {
         fin >> val;
-        if( fin.eof() ) break;
+        if( fin.eof() ) break;    //https://stackoverflow.com/questions/21647/reading-from-text-file-until-eof-repeats-last-line
         cout << val << " " << endl;
     }
     

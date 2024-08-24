@@ -9,3 +9,9 @@ https://learn.microsoft.com/en-us/cpp/cpp/constructors-cpp?view=msvc-170#member_
         : m_width(width), m_length(length), m_height(height)
     {}
 ```
+>The identifier must refer to a class member; it's initialized with the value of the argument. The argument can be one of the constructor parameters, a function call or a std::initializer_list<T>.
+>
+>const members and members of reference type must be initialized in the member initializer list.
+>
+>To ensure base classes are fully initialized before the derived constructor runs, call any parameterized base class constructors in the initializer list.
+
